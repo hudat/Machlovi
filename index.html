@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Machlovi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="A quiet record of the Machlovi name and the family behind it."
+  />
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-alt: #0b0b12;
+      --fg: #f4f4f4;
+      --muted: #8f8f9a;
+      --accent: #f4d78c;
+      --max-width: 720px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 10% 0%, #191927 0, #050509 55%);
+      color: var(--fg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .frame {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 18px;
+    }
+
+    main {
+      width: 100%;
+      max-width: var(--max-width);
+      background: linear-gradient(135deg, #080810, #030307);
+      border-radius: 18px;
+      border: 1px solid rgba(244, 215, 140, 0.12);
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+      padding: 30px 26px 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    main::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(244, 215, 140, 0.07), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(117, 161, 255, 0.06), transparent 55%);
+      mix-blend-mode: screen;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    header {
+      position: relative;
+      margin-bottom: 26px;
+    }
+
+    .label {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 3.4vw, 2.4rem);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.89rem;
+      max-width: 480px;
+    }
+
+    section {
+      position: relative;
+      padding-top: 14px;
+      margin-top: 14px;
+      border-top: 1px solid rgba(244, 215, 140, 0.16);
+    }
+
+    h2 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 0.9rem;
+      color: rgba(244, 244, 244, 0.92);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .accent {
+      color: var(--accent);
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(244, 215, 140, 0.06);
+      border: 1px solid rgba(244, 215, 140, 0.2);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 6px rgba(244, 215, 140, 0.9);
+    }
+
+    footer {
+      position: relative;
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      color: rgba(143, 143, 154, 0.9);
+    }
+
+    .sig {
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      color: rgba(143, 143, 154, 0.9);
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding: 22px 18px 20px;
+      }
+
+      .columns {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <main>
+      <header>
+        <div class="label">Family Archive</div>
+        <h1>Machlovi</h1>
+        <p class="subtitle">
+          A name carried quietly across borders and years. This page is a small
+          attempt to hold that story in one place.
+        </p>
+        <div class="pill">
+          <span class="dot"></span>
+          Ongoing record &mdash; <span id="year-pill"></span>
+        </div>
+      </header>
+
+      <section>
+        <h2>Origins</h2>
+        <p>
+          The story of the <span class="accent">Machlovi</span> family begins in
+          small, close communities where faith, learning, and responsibility to
+          others shaped the rhythm of life. Most of those early details were
+          never written down; they survived instead in memory, ritual, and the
+          way elders spoke about "where we came from."
+        </p>
+        <p class="muted">
+          The precise dates matter less than the pattern: a family learning how
+          to stay rooted while the world around it kept shifting.
+        </p>
+      </section>
+
+      <section>
+        <div class="columns">
+          <div>
+            <h2>Journeys</h2>
+            <p>
+              Over time, the Machlovi name moved—from one town to another,
+              then on to new countries altogether. Each move meant a new
+              language, a new street, a new way of being "from somewhere
+              else."
+            </p>
+            <p>
+              Some branches of the family stayed close to the original
+              centers of life; others built quiet lives oceans away. The
+              thread running through both is simple: keep what matters, adapt
+              to everything else.
+            </p>
+          </div>
+          <div>
+            <h2>Threads</h2>
+            <p class="muted">
+              Certain themes keep resurfacing when people talk about the
+              family:
+            </p>
+            <p>
+              <span class="accent">Learning</span> as a duty, not a luxury.  
+              <span class="accent">Loyalty</span> that extends beyond one
+              generation.  
+              <span class="accent">Resilience</span> in the face of quiet,
+              ordinary difficulty.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Now</h2>
+        <p>
+          Today the Machlovi name sits in phone contacts, documents, and
+          arrival records in places that earlier generations never saw. This
+          page is not the whole story; it is just a marker that the story
+          exists.
+        </p>
+        <p class="muted">
+          More details can be added in time: names, dates, photographs,
+          fragments of memory. For now, this is enough—a small, quiet note in
+          the open.
+        </p>
+      </section>
+
+      <footer>
+        <div>&copy; <span id="year"></span> The Machlovi Family</div>
+        <div class="sig">Machlovi · Archive</div>
+      </footer>
+
+      <script>
+        const y = new Date().getFullYear();
+        document.getElementById("year").textContent = y;
+        document.getElementById("year-pill").textContent = y;
+      </script>
+    </main>
+  </div>
+</body>
+</html>
