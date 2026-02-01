@@ -10,20 +10,29 @@
   />
   <style>
     :root {
-      --bg: #ffffff;
-      --bg-alt: #f5f5f7;
+      /* Light theme (default) */
+      --bg: #f5f5f7;
+      --bg-alt: #ffffff;
       --fg: #111111;
       --muted: #6b6b75;
       --accent: #b57a00;
+      --card-bg: #ffffff;
+      --card-border: rgba(0, 0, 0, 0.06);
+      --card-shadow: 0 24px 60px rgba(0, 0, 0, 0.06);
       --max-width: 720px;
     }
 
     [data-theme="dark"] {
+      /* Dark theme */
       --bg: #050509;
       --bg-alt: #0b0b12;
       --fg: #f4f4f4;
       --muted: #8f8f9a;
       --accent: #f4d78c;
+      --card-bg: linear-gradient(135deg, #080810, #030307);
+      --card-border: rgba(244, 215, 140, 0.12);
+      --card-shadow: 0 24px 60px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
     }
 
     * {
@@ -52,12 +61,10 @@
     main {
       width: 100%;
       max-width: var(--max-width);
-      background: linear-gradient(135deg, #080810, #030307);
+      background: var(--card-bg);
       border-radius: 18px;
-      border: 1px solid rgba(244, 215, 140, 0.12);
-      box-shadow:
-        0 24px 60px rgba(0, 0, 0, 0.7),
-        0 0 0 1px rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
       padding: 30px 26px 26px;
       position: relative;
       overflow: hidden;
@@ -332,8 +339,8 @@
           if (!btn) return;
 
           const stored = window.localStorage.getItem("machlovi-theme");
-          const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-          const initial = stored || (prefersDark ? "dark" : "light");
+          // Default to light unless user explicitly chose dark earlier
+          const initial = stored || "light";
 
           function apply(theme) {
             if (theme === "dark") {
